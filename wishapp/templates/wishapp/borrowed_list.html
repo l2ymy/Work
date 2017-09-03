@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}借用物一覧{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+  margin-top: 6px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <h2 style="font-size: 2em; color:#FFD700; background:#417690; width: auto; height: 60px; line-height: 60px; padding: 0 500%; margin: 0 -500%; overflow: hidden"> BorroWIsh - 借用物・検証機器 管理システム - </h2>
+    <h4 class="page-header">借用物一覧</h3>
+    <a href="{% url 'wishapp:borrowed_add' %}" class="btn btn-default btn-sm">追加</a>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>借用担当者</th>
+          <th>名称</th>
+          <th>借用日</th>
+          <th>借用時チェック</th>
+          <th>返却日</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for borrowed in borroweds %}
+        <tr>
+          <td>{{ borrowed.id }}</td>
+          <td>{{ borrowed.borrow_personnel }}</td>
+          <td>{{ borrowed.borrow_name }}</td>
+          <td>{{ borrowed.borrow_date }}</td>
+          <td>{{ borrowed.borrow_check }}</td>
+          <td>{{ borrowed.return_date }}</td>
+          <td>
+            <a href="{% url 'wishapp:borrowed_edit' borrowed_id=borrowed.id %}" class="btn btn-default btn-sm">修正</a>
+            <a href="{% url 'wishapp:borrowed_del' borrowed_id=borrowed.id %}" class="btn btn-default btn-sm">削除</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock content %}
