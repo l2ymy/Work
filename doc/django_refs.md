@@ -87,3 +87,5 @@ INSTALLED_APPS = [
     'wishapp',
 ]
 ```
+
+  
