@@ -2,7 +2,7 @@
 
 from django.db import models
 
-class Machinery(models.Model):
+class Machine(models.Model):
     "機器"
     author = models.CharField('担当者', max_length=255)
     vender = models.CharField('メーカー', max_length=255)
