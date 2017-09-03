@@ -1,7 +1,7 @@
 from django.contrib import admin
-from wishapp.models import Machinery
+from wishapp.models import Machine
 
 # Register your models here.
-admin.site.register(Machinery)
+admin.site.register(Machine)
 
 
